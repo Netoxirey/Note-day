@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: var(--background);
+    background-image: radial-gradient(circle at center bottom, rgb(23, 99, 222, .4), rgba(0,0,0, 0), transparent);
+    height: 100vh;
+    background-repeat: no-repeat;
+    color: var(--primary-text);
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: rgb(10, 6, 5);
+    --primary-color: #6293a7;
+    --secondary-color: #120f1a;
+    --accent-color: #58899d;
+    --primary-text: #fbf9f8;
+    --primary-color-opacity: #58899d33;
+}
+h1 {
+    @apply text-4xl;
+}
+h2 {
+    @apply text-4xl;
+}
+h3 {
+    @apply text-2xl;
+}
+p {
+    @apply text-base;
+}
+@layer components {
+    .btn {
+        @apply px-5 py-2 bg-mariner-400 text-mariner-950 rounded hover:bg-mariner-300 active:bg-mariner-500 transition-colors;
+    }
+    .btn-overline {
+        @apply px-5 py-2 border-2 border-mariner-300 rounded text-mariner-300 bg-transparent hover:bg-mariner-950 active:bg-mariner-900 transition-colors;
+    }
+    .btn-text {
+        @apply  hover:text-mariner-300 hover:cursor-pointer active:text-mariner-900  transition-colors;
+    }
+    .input-text {
+        @apply  px-3 bg-transparent border text-white rounded;
+    }
+    .modal {
+        @apply absolute top-0 left-0 w-full h-full;
+    }
+    .absolute-ct {
+        @apply absolute w-full h-full -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    }
+    .grid-responsive {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 3rem;
+    }
+    .bg-gradient {
+        background-image: radial-gradient(circle closest-corner, rgba(23, 101, 223, 0.20), rgba(10, 6, 5, 0));
+    }
+
+    .gradient-card {
+        background-image: radial-gradient(circle closest-corner, rgba(23, 101, 223, 0.1), rgba(10, 6, 5, 0));
+    }
+    .spinner {
+        background-color: transparent;
+        border: 20px solid rgba(23, 101, 223, 0.2);
+        width: 10rem;
+        height: 10rem;
+        border-radius: 50%;
+        position: relative;
+        border-top-color: rgba(23, 101, 223, 1);
+        animation: rotation 1s linear infinite;
+    }
+
+    .absolute-center {
+        position: absolute;
+        width: 100px;   
+        height: 100px;
+        top: 50%; /* Posiciona el elemento en el centro verticalmente */
+        left: 50%; /* Posiciona el elemento en el centro horizontalmente */
+        transform: translate(-50%, -50%)
+    }
+    
+    .mobile-show {
+        @apply flex flex-col justify-center items-center opacity-100;
+        transition: width 0.3s, opacity 0.3s;
+    }
+
+    .mobile-hidden {
+        @apply hidden opacity-0;
+        transition: width 0.3s, opacity 0.3s;
+    }
+
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+        } 
+}
+
