@@ -31,7 +31,7 @@ app.use(morgan('combined'))
 app.use(express.json());
 
 app.use('/api/task', taskRouter);
-app.use(express.static(path.join(__dirname, '..', 'public')))
+app.use(express.static(path.join(__dirname, '..', '..','client','dist')))
 app.get('/authenticated', (req, res) => {
     res.json(req.oidc.isAuthenticated() ? true : false);
   });
